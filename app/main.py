@@ -18,6 +18,7 @@ def main():
                         continue
                     else:
                         print(x,end=" ")
+                print()
 
 
             else:
