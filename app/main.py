@@ -10,7 +10,7 @@ def main():
         command = input().split()
         if(command[0] != ""):
             if(command[0] == exit):
-                break
+                exit(0)
 
             else:
 
