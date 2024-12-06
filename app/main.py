@@ -12,6 +12,14 @@ def main():
             if(command[0] == "exit"):
                 exit(0)
 
+            elif(command[0]== "echo"):
+                for x in command:
+                    if(x == "echo"):
+                        continue
+                    else:
+                        print(x,end=" ")
+
+
             else:
 
                 print(command[0]+": command not found")
