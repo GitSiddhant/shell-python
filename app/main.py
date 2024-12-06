@@ -14,7 +14,7 @@ def main():
 
             else:
 
-                print(command+": command not found")
+                print(command[0]+": command not found")
                 sys.stdout.write("$ ")
 
         
