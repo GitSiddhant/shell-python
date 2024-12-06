@@ -11,9 +11,11 @@ def main():
         if(command != ""):
 
             print(command+": command not found")
+            sys.stdout.write("$ ")
+
         
         else:
-            sys.stdout.write("$ ")
+            
             break
 
 
