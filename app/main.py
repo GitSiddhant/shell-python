@@ -7,11 +7,15 @@ def main():
 
     # Wait for user input
     while(True):
-        command = input()
-        if(command != ""):
+        command = input().split()
+        if(command[0] != ""):
+            if(command[0] == exit):
+                break
 
-            print(command+": command not found")
-            sys.stdout.write("$ ")
+            else:
+
+                print(command+": command not found")
+                sys.stdout.write("$ ")
 
         
         else:
