@@ -13,6 +13,7 @@ def main():
             print(command+": command not found")
         
         else:
+            print("$ ")
             break
 
 
