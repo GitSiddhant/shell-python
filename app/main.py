@@ -8,7 +8,7 @@ def main():
     # Wait for user input
     command = input()
 
-    print(command,": command not found")
+    print(command+": command not found")
 
 
 if __name__ == "__main__":
