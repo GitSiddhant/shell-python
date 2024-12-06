@@ -18,6 +18,8 @@ def main():
                         print(command[x])
                     else:
                         print(command[x],end=" ")
+
+                sys.stdout.write("$ ")
                 
 
 
