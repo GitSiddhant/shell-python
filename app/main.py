@@ -15,9 +15,9 @@ def main():
             elif(command[0]== "echo"):
                 for x in range(1,len(command)):
                     if(x == len(command)-1):
-                        print(x)
+                        print(command[x])
                     else:
-                        print(x,end=" ")
+                        print(command[x],end=" ")
                 
 
 
