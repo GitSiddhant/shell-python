@@ -19,14 +19,10 @@ def main():
                     else:
                         print(command[x],end=" ")
 
-                sys.stdout.write("$ ")
-                
-
-
             else:
 
                 print(command[0]+": command not found")
-                sys.stdout.write("$ ")
+            sys.stdout.write("$ ")
 
         
         else:
