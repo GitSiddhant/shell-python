@@ -9,7 +9,7 @@ def main():
     while(True):
         command = input().split()
         if(command[0] != ""):
-            if(command[0] == exit):
+            if(command[0] == "exit"):
                 exit(0)
 
             else:
