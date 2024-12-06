@@ -18,6 +18,12 @@ def main():
                         print(command[x])
                     else:
                         print(command[x],end=" ")
+            
+            elif(command[0]=="type"):
+                if command[1] in ["echo","exit","type"]:
+                    print(command[1]+" is a shell builtin")
+                else:
+                    print(command[1]+": not found")
 
             else:
 
