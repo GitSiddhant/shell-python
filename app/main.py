@@ -13,12 +13,12 @@ def main():
                 exit(0)
 
             elif(command[0]== "echo"):
-                for x in command:
-                    if(x == "echo"):
-                        continue
+                for x in range(1,len(command)):
+                    if(x == len(command)-1):
+                        print(x)
                     else:
                         print(x,end=" ")
-                print()
+                
 
 
             else:
