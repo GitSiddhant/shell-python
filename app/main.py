@@ -1,9 +1,14 @@
 import sys
+import os
+
+
+
 
 
 def main():
     # Uncomment this block to pass the first stage
     sys.stdout.write("$ ")
+    PATH = os.environ.get("PATH")
 
     # Wait for user input
     while(True):
@@ -20,8 +25,16 @@ def main():
                         print(command[x],end=" ")
             
             elif(command[0]=="type"):
+                cmd = command[1]
+                cmd_path = None
+                paths = PATH.split(":")
+                for path in paths:
+                    if os.path.isfile(f"{path}/{cmd}"):
+                        cmd_path = f"{path}/{cmd}"
                 if command[1] in ["echo","exit","type"]:
                     print(command[1]+" is a shell builtin")
+                elif cmd_path:
+                    print(cmd+" is "+cmd_path)
                 else:
                     print(command[1]+": not found")
 
