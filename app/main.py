@@ -72,15 +72,16 @@ def main():
                     print(cmd+" is "+cmd_path)
                 else:
                     print(command[1]+": not found")
-            elif(command[0].startswith("program")):
-                print("Hello "+command[1+"!"],end = " ")
-                execute_program(command[0])
+            # elif(command[0].startswith("program")):
+            #     print("Hello "+command[1+"!"],end = " ")
+            #     execute_program(command[0])
             
 
 
             else:
 
-                print(command[0]+": command not found")
+                print("Hello "+command[1]+"!",end = " ")
+                execute_program(command[0])
             sys.stdout.write("$ ")
 
         
