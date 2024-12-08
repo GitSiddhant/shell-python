@@ -1,6 +1,7 @@
 import sys
 import os
 import subprocess
+from typing import Optional
 
 def locate_executable(command) -> Optional[str]:
     path = os.environ.get("PATH", "")
