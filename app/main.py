@@ -44,7 +44,7 @@ def main():
                         print(args[x],end=" ")
             
             elif(command=="type"):
-                cmd = command
+                cmd = args[0]
                 cmd_path = None
                 paths = PATH.split(":")
                 for path in paths:
