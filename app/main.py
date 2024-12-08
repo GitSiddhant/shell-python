@@ -18,7 +18,7 @@ def handle_type(args):
     elif executable := locate_executable(args[0]):
         print(f"{args[0]} is {executable}")
     else:
-        print(f"{args[0]} not found")
+        print(f"{args[0]}: not found")
 builtins = {
     "exit": handle_exit,
     "echo": handle_echo,
