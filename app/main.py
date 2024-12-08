@@ -46,6 +46,7 @@ def main():
                     print(command[1]+": not found")
 
             elif(executable := locate_executable(command[0])):
+                print(executable)
                 subprocess.run(executable,command[1:])
             # elif(command[0].startswith("program")):
             #     print("Hello "+command[1+"!"],end = " ")
