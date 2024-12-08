@@ -60,6 +60,10 @@ def main():
             elif(executable := locate_executable(command)):
                 #print(executable)
                 subprocess.run([executable,*args])
+            
+            elif(command=="pwd"):
+                print(os.getcwd())
+
             else:
                 print(f"{command}: command not found")
             # elif(command[0].startswith("program")):
