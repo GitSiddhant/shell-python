@@ -50,12 +50,12 @@ def main():
                 for path in paths:
                     if os.path.isfile(f"{path}/{cmd}"):
                         cmd_path = f"{path}/{cmd}"
-                if command in ["echo","exit","type"]:
-                    print(command+" is a shell builtin")
+                if cmd in ["echo","exit","type"]:
+                    print(cmd+" is a shell builtin")
                 elif cmd_path:
                     print(cmd+" is "+cmd_path)
                 else:
-                    print(command+": not found")
+                    print(cmd+": not found")
 
             elif(executable := locate_executable(command)):
                 #print(executable)
