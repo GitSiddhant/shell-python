@@ -47,7 +47,7 @@ def main():
 
             elif(executable := locate_executable(command[0])):
                 print(executable)
-                subprocess.run(executable,command[1:])
+                subprocess.run(executable,command[1])
             # elif(command[0].startswith("program")):
             #     print("Hello "+command[1+"!"],end = " ")
             #     execute_program(command[0])
