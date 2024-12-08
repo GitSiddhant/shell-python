@@ -2,41 +2,12 @@ import sys
 import os
 import subprocess
 
-def execute_program(program_name, args=None):
-    """
-    Executes a program available in the PATH and prints its output.
-
-    :param program_name: The name of the executable to run.
-    :param args: A list of arguments to pass to the executable, if any.
-    """
-    # Build the command
-    command = [program_name]
-    if args:
-        command.extend(args)
-
-    try:
-        # Execute the program
-        result = subprocess.run(
-            command,
-            capture_output=True,  # Capture stdout and stderr
-            text=True,            # Return output as a string
-            check=True            # Raise exception if the command fails
-        )
-
-        # Print the output
-        
-        print( result.stdout)
-
-        # Print errors, if any
-        if result.stderr:
-            print("Errors:")
-            print(result.stderr)
-    except subprocess.CalledProcessError as e:
-        print(f"Error executing {program_name}: {e}")
-        print("Error Output:")
-        print(e.stderr)
-    except FileNotFoundError:
-        print(f"Error: {program_name} not found in PATH.")
+def locate_executable(command) -> Optional[str]:
+    path = os.environ.get("PATH", "")
+    for directory in path.split(":"):
+        file_path = os.path.join(directory, command)
+        if os.path.isfile(file_path) and os.access(file_path, os.X_OK):
+            return file_path
 
 
 
@@ -72,16 +43,16 @@ def main():
                     print(cmd+" is "+cmd_path)
                 else:
                     print(command[1]+": not found")
+
+            elif(executable := locate_executable(command[0])):
+                subprocess.run(executable,command[1:])
             # elif(command[0].startswith("program")):
             #     print("Hello "+command[1+"!"],end = " ")
             #     execute_program(command[0])
             
 
 
-            else:
-
-                print("Hello "+command[1]+"!",end = " ")
-                execute_program(command[0])
+           
             sys.stdout.write("$ ")
 
         
