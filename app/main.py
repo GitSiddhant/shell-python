@@ -65,10 +65,14 @@ def main():
                 print(os.getcwd())
             
             elif(command=="cd"):
-                try:
-                    os.chdir(args[0])
-                except FileNotFoundError:
-                    print(f"cd: {args[0]}: No such file or directory")
+                if(args[0]=='~'):
+                    os.chdir(os.environ.get("HOME"))
+
+                else:
+                    try:
+                        os.chdir(args[0])
+                    except FileNotFoundError:
+                        print(f"cd: {args[0]}: No such file or directory")
 
                
 
