@@ -65,7 +65,12 @@ def main():
                 print(os.getcwd())
             
             elif(command=="cd"):
-                os.chdir(args[0])
+                try:
+                    os.chdir(args[0])
+                except FileNotFoundError:
+                    print(f"cd: {args[0]}: No such file or directory")
+
+               
 
             else:
                 print(f"{command}: command not found")
