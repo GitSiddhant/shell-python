@@ -19,35 +19,35 @@ def main():
 
     # Wait for user input
     while(True):
-        command = input().split()
-        if(command[0] != ""):
-            if(command[0] == "exit"):
+        command, *args = input().split(" ")
+        if(command != ""):
+            if(command== "exit"):
                 exit(0)
 
-            elif(command[0]== "echo"):
-                for x in range(1,len(command)):
-                    if(x == len(command)-1):
-                        print(command[x])
+            elif(command== "echo"):
+                for x in range(1,len(args)):
+                    if(x == len(args)-1):
+                        print(args[x])
                     else:
-                        print(command[x],end=" ")
+                        print(command,end=" ")
             
-            elif(command[0]=="type"):
-                cmd = command[1]
+            elif(command=="type"):
+                cmd = command
                 cmd_path = None
                 paths = PATH.split(":")
                 for path in paths:
                     if os.path.isfile(f"{path}/{cmd}"):
                         cmd_path = f"{path}/{cmd}"
-                if command[1] in ["echo","exit","type"]:
-                    print(command[1]+" is a shell builtin")
+                if command in ["echo","exit","type"]:
+                    print(command+" is a shell builtin")
                 elif cmd_path:
                     print(cmd+" is "+cmd_path)
                 else:
-                    print(command[1]+": not found")
+                    print(command+": not found")
 
-            elif(executable := locate_executable(command[0])):
+            elif(executable := locate_executable(command)):
                 #print(executable)
-                subprocess.run(executable,command[1:])
+                subprocess.run(executable, *args)
             # elif(command[0].startswith("program")):
             #     print("Hello "+command[1+"!"],end = " ")
             #     execute_program(command[0])
