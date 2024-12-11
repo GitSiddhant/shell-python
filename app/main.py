@@ -106,9 +106,9 @@ def main():
                 for match in matches:
                     # match = match[1:-1]
                     
-                    path=locate_executable(match)
+                    #path=locate_executable(match)
                     # print(match)
-                    with open(path, 'r') as file:
+                    with open(match, 'r') as file:
                         content = file.read()
                     print(content,end=" ")
                 print()
