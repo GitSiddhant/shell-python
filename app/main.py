@@ -38,8 +38,12 @@ def main():
 
             elif(command== "echo"):
                 for x in range(0,len(args)):
-                    if(x == len(args)-1):
-                        print(args[x])
+                    if(x==0 and args[x][0]=="'"):
+                        print(args[x][1:],end=" ")
+                    elif(x==len(args)-1 and args[x][-1]=="'"):
+                        print(args[x][0:-1])
+                    elif(x == len(args)-1):
+                        print("")
                     else:
                         print(args[x],end=" ")
             
@@ -50,7 +54,7 @@ def main():
                 for path in paths:
                     if os.path.isfile(f"{path}/{cmd}"):
                         cmd_path = f"{path}/{cmd}"
-                if cmd in ["echo","exit","type","pwd","cd"]:
+                if cmd in ["echo","exit","type","pwd","cd","cat"]:
                     print(cmd+" is a shell builtin")
                 elif cmd_path:
                     print(cmd+" is "+cmd_path)
@@ -73,6 +77,16 @@ def main():
                         os.chdir(args[0])
                     except FileNotFoundError:
                         print(f"cd: {args[0]}: No such file or directory")
+
+            elif(command=="cat"):
+                for path in args:
+                    path=path[1:-1]
+                    with open(path, 'r') as file:
+                        content = file.read()
+                    print(content,end=" ")
+                print()
+
+
 
                
 
