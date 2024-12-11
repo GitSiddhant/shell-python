@@ -31,7 +31,7 @@ def main():
 
     # Wait for user input
     while(True):
-        command, *args= input().split()
+        command, *args= input().split(" ")
         if(command != ""):
             if(command == "exit"):
                 exit(0)
@@ -43,7 +43,7 @@ def main():
                     elif(x==len(args)-1 and args[x][-1]=="'"):
                         print(args[x][0:-1])
                     elif(x == len(args)-1):
-                        print("")
+                        print(args[x])
                     else:
                         print(args[x],end=" ")
             
