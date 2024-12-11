@@ -31,7 +31,7 @@ def main():
 
     # Wait for user input
     while(True):
-        command, *args= input().split(" ")
+        command, *args= input().split()
         if(command != ""):
             if(command == "exit"):
                 exit(0)
