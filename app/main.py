@@ -93,15 +93,21 @@ def main():
                         print(f"cd: {args[0]}: No such file or directory")
 
             elif(command=="cat"):
-                inp=""
+                inp="INP"
                 for arg in args:
-                    inp+=arg
-                
+                    if(arg==""):
+                        inp+="  "
+                    else:
+                        inp+=arg
+                # print(inp)
+               
                 matches = re.findall(r"'(.*?)'", inp)
 
                 for match in matches:
-                    match = match[1:-1]
+                    # match = match[1:-1]
+                    
                     path=locate_executable(match)
+                    # print(match)
                     with open(path, 'r') as file:
                         content = file.read()
                     print(content,end=" ")
