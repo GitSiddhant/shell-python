@@ -107,11 +107,12 @@ def main():
                     # match = match[1:-1]
                     
                     #path=locate_executable(match)
-                    # print(match)
-                    with open(match, 'r') as file:
-                        content = file.read()
-                    print(content,end=" ")
+                    print(match)
+                    # with open(match, 'r') as file:
+                    #     content = file.read()
+                    # print(content,end=" ")
                 print()
+                
 
 
 
