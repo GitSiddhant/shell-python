@@ -52,7 +52,8 @@ def main():
                     elif flag:
                         print(args[x],end=" ")
                     elif flag is False:
-                        if(args[x]==" "):
+                        if(args[x]==""):
+                            #print("I am here")
                             print("",end="")
                         else:
                             print(args[x],end=" ")
