@@ -31,21 +31,31 @@ def main():
 
     # Wait for user input
     while(True):
-        command, *args= input().split()
+        command, *args= input().split(" ")
         if(command != ""):
             if(command == "exit"):
                 exit(0)
 
             elif(command== "echo"):
+                flag = False
                 for x in range(0,len(args)):
+                    
                     if(x==0 and args[x][0]=="'"):
+                        flag=True
                         print(args[x][1:],end=" ")
                     elif(x==len(args)-1 and args[x][-1]=="'"):
                         print(args[x][0:-1])
                     elif(x == len(args)-1):
                         print(args[x])
-                    else:
+                    elif flag:
                         print(args[x],end=" ")
+                    elif flag is False:
+                        if(args[x]==" "):
+                            continue
+                        else:
+                            print(args[x],end=" ")
+
+
             
             elif(command=="type"):
                 cmd = args[0]
