@@ -92,8 +92,9 @@ def main():
                         print(f"cd: {args[0]}: No such file or directory")
 
             elif(command=="cat"):
+                args = args.split()
                 for path in args:
-                    path=path[1:-1]
+                    path=locate_executable(path[1:-1])
                     with open(path, 'r') as file:
                         content = file.read()
                     print(content,end=" ")
