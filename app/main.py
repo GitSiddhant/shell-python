@@ -39,6 +39,8 @@ def main():
             elif(command== "echo"):
                 flag = False
                 for x in range(0,len(args)):
+                    # print(args[x])
+                    # print(flag)
                     
                     if(x==0 and args[x][0]=="'"):
                         flag=True
@@ -51,7 +53,7 @@ def main():
                         print(args[x],end=" ")
                     elif flag is False:
                         if(args[x]==" "):
-                            continue
+                            print("",end="")
                         else:
                             print(args[x],end=" ")
 
