@@ -3,6 +3,7 @@ import subprocess
 import sys
 from typing import Optional
 import re
+import shlex
 def locate_executable(command) -> Optional[str]:
     path = os.environ.get("PATH", "")
     for directory in path.split(":"):
@@ -93,24 +94,8 @@ def main():
                         print(f"cd: {args[0]}: No such file or directory")
 
             elif(command=="cat"):
-                inp="INP"
-                for arg in args:
-                    if(arg==""):
-                        inp+="  "
-                    else:
-                        inp+=arg
-                # print(inp)
-               
-                matches = re.findall(r"'(.*?)'", inp)
-
-                for match in matches:
-                    # match = match[1:-1]
-                    
-                    #path=locate_executable(match)
-                    print(match)
-                    # with open(match, 'r') as file:
-                    #     content = file.read()
-                    # print(content,end=" ")
+                print("Cat running...")
+                
                 print()
                 
 
