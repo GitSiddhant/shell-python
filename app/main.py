@@ -93,8 +93,15 @@ def main():
                     except FileNotFoundError:
                         print(f"cd: {args[0]}: No such file or directory")
 
-            elif(command=="cat"):
-                print("Cat running...")
+            else:
+                args = shlex.split(args)
+                executablePath = locate_executable(args[0])
+                if executablePath:
+                    result = subprocess.run(args, capture_output=True, text=True)
+                    print(result.stdout, end="")
+                else:
+                    print(f"{command}: command not found")
+
                 
                 print()
                 
@@ -103,8 +110,7 @@ def main():
 
                
 
-            else:
-                print(f"{command}: command not found")
+            
             # elif(command[0].startswith("program")):
             #     print("Hello "+command[1+"!"],end = " ")
             #     execute_program(command[0])
