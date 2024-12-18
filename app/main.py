@@ -43,7 +43,7 @@ def main():
                 for path in paths:
                     if os.path.isfile(f"{path}/{cmd}"):
                         cmd_path = f"{path}/{cmd}"
-                if cmd in ["echo","exit","type","pwd","cd","cat"]:
+                if cmd in ["echo","exit","type","pwd","cd"]:
                     print(cmd+" is a shell builtin")
                 elif cmd_path:
                     print(cmd+" is "+cmd_path)
